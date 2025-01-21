@@ -227,7 +227,7 @@ func (x *XlsxFile) getCellValue(r rawCell) (string, error) {
 	if x.dateStyles[r.Style] && r.Type != "d" {
 		formattedDate, err := convertExcelDateToDateString(*r.Value)
 		if err != nil {
-			return "", err
+			return *r.Value, nil
 		}
 		return formattedDate, nil
 	}
