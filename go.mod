@@ -1,4 +1,4 @@
-module github.com/thedatashed/xlsxreader
+module github.com/resolver-kroll/xlsxreader
 
 retract v1.2.7
 
