@@ -214,11 +214,10 @@ func (x *XlsxFile) getCellValue(r rawCell) (string, error) {
 	if r.Type == "s" {
 		index, err := strconv.Atoi(*r.Value)
 		if err != nil {
-			return "", err
+			return *r.Value, nil
 		}
 		if len(x.sharedStrings) <= index {
-			return "", fmt.Errorf("attempted to index value %d in shared strings of length %d",
-				index, len(x.sharedStrings))
+			return *r.Value, nil
 		}
 
 		return x.sharedStrings[index], nil
